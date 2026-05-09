@@ -1,0 +1,534 @@
+<!DOCTYPE html><html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Krishna Kumar Dhuriya | Portfolio</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: "Segoe UI", Arial, sans-serif;
+    }html {
+  scroll-behavior: smooth;
+}
+
+body {
+  color: #f8fafc;
+  line-height: 1.7;
+  background:
+    radial-gradient(circle at top, rgba(37, 99, 235, 0.35), transparent 30%),
+    radial-gradient(circle at bottom right, rgba(14, 165, 233, 0.22), transparent 28%),
+    linear-gradient(135deg, #020617, #0f172a, #111827);
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+}
+
+.container {
+  max-width: 1100px;
+  margin: auto;
+  padding: 28px 20px;
+}
+
+nav {
+  position: relative;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  padding: 8px 5px;
+  margin-bottom: 5px;
+  background: transparent;
+  border: none;
+  box-shadow: none;
+  z-index: 1000;
+}
+
+.menu-toggle {
+  display: none;
+}
+
+.menu-icon {
+  width: 44px;
+  height: 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 6px;
+  cursor: pointer;
+  padding: 4px;
+  border-radius: 10px;
+  transition: 0.3s;
+}
+
+.menu-icon:hover {
+  background: rgba(37, 99, 235, 0.18);
+}
+
+.menu-icon span {
+  display: block;
+  width: 34px;
+  height: 4px;
+  border-radius: 999px;
+  background: #e2e8f0;
+  transition: 0.3s ease;
+}
+
+.mobile-menu {
+  position: absolute;
+  top: 68px;
+  right: 20px;
+  background: rgba(15, 23, 42, 0.98);
+  border: 1px solid rgba(148, 163, 184, 0.25);
+  backdrop-filter: blur(14px);
+  border-radius: 16px;
+  min-width: 210px;
+  padding: 10px;
+  display: none;
+  flex-direction: column;
+  box-shadow: 0 18px 40px rgba(0,0,0,0.45);
+  z-index: 9999;
+}
+
+.mobile-menu a {
+  display: block;
+  color: #e2e8f0;
+  text-decoration: none;
+  padding: 12px 14px;
+  border-radius: 10px;
+  transition: 0.3s;
+  margin: 2px 0;
+  font-size: 15px;
+}
+
+.mobile-menu a:hover {
+  background: rgba(37, 99, 235, 0.28);
+  color: #7dd3fc;
+}
+
+.menu-toggle:checked ~ .mobile-menu {
+  display: flex;
+}
+
+.menu-toggle:checked + .menu-icon span:nth-child(1) {
+  transform: rotate(45deg) translate(7px, 7px);
+}
+
+.menu-toggle:checked + .menu-icon span:nth-child(2) {
+  opacity: 0;
+}
+
+.menu-toggle:checked + .menu-icon span:nth-child(3) {
+  transform: rotate(-45deg) translate(7px, -7px);
+}
+
+nav a {
+  color: #e2e8f0;
+  text-decoration: none;
+  font-size: 14px;
+}
+
+nav a:hover {
+  color: #38bdf8;
+}
+
+.hero {
+  margin-top: -10px;
+  min-height: 430px;
+  display: grid;
+  place-items: center;
+  text-align: center;
+  padding: 70px 28px;
+  border-radius: 30px;
+  margin-bottom: 28px;
+  position: relative;
+  overflow: hidden;
+  background:
+    radial-gradient(circle at top left, rgba(37, 99, 235, 0.55), transparent 32%),
+    radial-gradient(circle at bottom right, rgba(14, 165, 233, 0.35), transparent 35%),
+    rgba(15, 23, 42, 0.72);
+  backdrop-filter: blur(16px);
+  border: 1px solid rgba(147, 197, 253, 0.3);
+  box-shadow: 0 28px 70px rgba(0, 0, 0, 0.38);
+}
+
+.hero::before {
+  content: "</>";
+  position: absolute;
+  right: 42px;
+  top: 35px;
+  font-size: 90px;
+  color: rgba(96, 165, 250, 0.12);
+  font-weight: 800;
+}
+
+.badge {
+  display: inline-block;
+  padding: 8px 16px;
+  border-radius: 999px;
+  background: rgba(59, 130, 246, 0.18);
+  color: #bfdbfe;
+  border: 1px solid rgba(96, 165, 250, 0.45);
+  margin-bottom: 18px;
+  font-size: 14px;
+}
+
+.hero h1 {
+  font-size: clamp(36px, 6vw, 62px);
+  line-height: 1.1;
+  margin-bottom: 14px;
+  background: linear-gradient(90deg, #ffffff, #93c5fd, #38bdf8);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.hero h2 {
+  font-size: clamp(18px, 3vw, 28px);
+  font-weight: 500;
+  color: #dbeafe;
+  margin-bottom: 18px;
+}
+
+.hero p {
+  max-width: 760px;
+  margin: auto;
+  color: #cbd5e1;
+  font-size: 17px;
+}
+
+.buttons {
+  margin-top: 28px;
+  display: flex;
+  justify-content: center;
+  gap: 14px;
+  flex-wrap: wrap;
+}
+
+.btn {
+  padding: 12px 20px;
+  border-radius: 12px;
+  text-decoration: none;
+  font-weight: 700;
+  transition: 0.3s;
+}
+
+.btn.primary {
+  background: #2563eb;
+  color: #fff;
+  box-shadow: 0 10px 22px rgba(37, 99, 235, 0.38);
+}
+
+.btn.secondary {
+  color: #dbeafe;
+  border: 1px solid rgba(147, 197, 253, 0.45);
+  background: rgba(15, 23, 42, 0.45);
+}
+
+.btn:hover {
+  transform: translateY(-3px);
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 22px;
+}
+
+section {
+  background: rgba(15, 23, 42, 0.74);
+  padding: 28px;
+  border-radius: 22px;
+  margin-bottom: 22px;
+  backdrop-filter: blur(14px);
+  border: 1px solid rgba(148, 163, 184, 0.22);
+  box-shadow: 0 16px 45px rgba(0, 0, 0, 0.28);
+}
+
+section h2 {
+  color: #60a5fa;
+  margin-bottom: 16px;
+  font-size: 25px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+section h2::before {
+  content: "";
+  width: 9px;
+  height: 28px;
+  border-radius: 999px;
+  background: linear-gradient(#38bdf8, #2563eb);
+  display: inline-block;
+}
+
+p, li {
+  color: #d1d5db;
+}
+
+.skills {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(145px, 1fr));
+  gap: 12px;
+}
+
+.skill {
+  background: rgba(30, 64, 175, 0.34);
+  color: #dbeafe;
+  padding: 12px;
+  border-radius: 14px;
+  text-align: center;
+  font-weight: 700;
+  border: 1px solid rgba(96, 165, 250, 0.28);
+}
+
+.card {
+  margin-bottom: 15px;
+  padding: 17px;
+  border-left: 4px solid #38bdf8;
+  background: rgba(2, 6, 23, 0.36);
+  border-radius: 14px;
+  border-top: 1px solid rgba(148, 163, 184, 0.12);
+}
+
+.card h3 {
+  color: #f8fafc;
+  margin-bottom: 6px;
+  font-size: 18px;
+}
+
+ul {
+  padding-left: 20px;
+}
+
+.contact a {
+  color: #7dd3fc;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+footer {
+  text-align: center;
+  padding: 24px;
+  color: #94a3b8;
+}
+
+@media (max-width: 800px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+
+  .hero {
+    min-height: auto;
+    padding: 55px 20px;
+  }
+  .contact-form {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.contact-form input,
+.contact-form textarea {
+  width: 100%;
+  padding: 14px;
+  border-radius: 12px;
+  border: 1px solid rgba(96, 165, 250, 0.35);
+  background: rgba(2, 6, 23, 0.45);
+  color: white;
+  outline: none;
+  font-size: 15px;
+}
+
+.contact-form input::placeholder,
+.contact-form textarea::placeholder {
+  color: #94a3b8;
+}
+
+.contact-form button {
+  padding: 13px;
+  border: none;
+  border-radius: 12px;
+  background: #2563eb;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.contact-form button:hover {
+  background: #1d4ed8;
+}
+}
+
+  </style>
+</head>
+<body>
+  <div class="container">
+    <nav>
+      <input type="checkbox" id="menuToggle" class="menu-toggle" />
+      <label for="menuToggle" class="menu-icon" aria-label="Open menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </label><div class="mobile-menu">
+    <a href="#about">About</a>
+    <a href="#skills">Skills</a>
+    <a href="#projects">Projects</a>
+    <a href="#contact">Contact</a>
+  </div>
+</nav>
+
+<header class="hero">
+  <div>
+    <span class="badge">Aspiring Software Developer</span>
+    <h1>Krishna Kumar Dhuriya</h1>
+    <h2>BCA Student | HTML • CSS • Python • C</h2>
+    <p>
+      Passionate about technology, programming, AI tools, and software development. I am learning and improving my skills to build a strong career in the IT field.
+    </p>
+    <div class="buttons">
+      <a class="btn primary" href="#contact">Contact Me</a>
+      <a class="btn secondary" href="#projects">View Projects</a>
+    </div>
+  </div>
+</header>
+
+<section id="about">
+  <h2>About Me</h2>
+  <p>
+    Hello! I am Krishna Kumar Dhuriya, a BCA student passionate about technology, programming, AI tools, and digital skills. I enjoy learning new technologies, improving programming skills, and exploring modern AI tools that improve productivity and creativity.
+  </p>
+  <br />
+  <p>
+    My goal is to become a skilled Software Developer and build a strong career in the IT field.
+  </p>
+</section>
+
+<div class="grid">
+  <section>
+    <h2>Education</h2>
+    <div class="card">
+      <h3>Bachelor of Computer Applications (BCA)</h3>
+      <p>Currently Pursuing in Kali Charan Nigam Institute of Technology</p>
+    </div>
+  </section>
+
+  <section>
+    <h2>Certifications</h2>
+    <ul>
+      <li>
+  Digital Marketing Certification -
+  <a href="https://drive.google.com/file/d/1_sgjPxrj0cyOu1JzrEMe_QSfb95AMP6y/view?usp=drivesdk" target="_blank">
+    View 
+  </a>
+</li>
+
+<li>
+  CCC Certification – NIELIT -
+  <a href="https://drive.google.com/file/d/1oYLBiYhdSyjN2IC2k4TvsIt51TH0obqa/view?usp=drivesdk" target="_blank">
+         View 
+  </a>
+</li>
+      <li>
+  Google Drive Certificate -
+  <a href="https://drive.google.com/file/d/1vlGqMKSoZpa7iES49jweBWK84J8Qh1Ft/view?usp=drivesdk" target="_blank">
+    View
+  </a>
+</li>
+
+<li>
+  Introduction to AI Certificate -
+  <a href="https://drive.google.com/file/d/1KI_0XXBtq2FdtrqutTFMEJChohTurBf0/view?usp=drivesdk" target="_blank">
+    View
+  </a>
+</li>
+    </ul>
+  </section>
+</div>
+
+<section id="skills">
+  <h2>Skills</h2>
+  <div class="skills">
+    <div class="skill">HTML</div>
+    <div class="skill">CSS</div>
+    <div class="skill">Python</div>
+    <div class="skill">C Programming</div>
+    <div class="skill">AI Tools</div>
+    <div class="skill">Digital Marketing</div>
+    <div class="skill">Video Editing</div>
+    <div class="skill">Basic Computer Skills</div>
+    <div class="skill">Communication Skills</div>
+    <div class="skill">Problem Solving</div>
+  </div>
+</section>
+
+<section id="projects">
+  <h2>Projects</h2>
+  <div class="card">
+    <h3>AI Thumbnail Creation</h3>
+    <p>Created AI-based YouTube thumbnails using modern AI tools and editing techniques.</p>
+  </div>
+  <div class="card">
+    <h3>Programming Practice</h3>
+    <p>Practicing and improving development skills using HTML, CSS, Python, and C programming.</p>
+  </div>
+</section>
+
+<div class="grid">
+  <section>
+    <h2>Achievements</h2>
+    <ul>
+      <li>Started building a professional LinkedIn profile</li>
+      <li>Learning modern AI tools and improving programming skills</li>
+      <li>Working on improving communication and technical skills</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>Interests</h2>
+    <ul>
+      <li>Artificial Intelligence</li>
+      <li>Technology</li>
+      <li>Web Development</li>
+      <li>Digital Creativity</li>
+      <li>Learning New Skills</li>
+    </ul>
+  </section>
+</div>
+
+<section class="contact" id="contact">
+  <h2>Contact</h2>
+  <form class="contact-form"
+      action="https://formsubmit.co/krishnakumardhuriya5@gmail.com"
+      method="POST">
+
+  <input type="text"
+         name="name"
+         placeholder="Your Name"
+         required>
+
+  <input type="email"
+         name="email"
+         placeholder="Your Email"
+         required>
+
+  <textarea name="message"
+            placeholder="Your Message"
+            rows="5"
+            required></textarea>
+
+  <button type="submit">
+    Send Message
+  </button>
+
+</form>
+</section>
+
+<footer>
+  <p>© 2026 Krishna Kumar Dhuriya. All Rights Reserved.</p>
+</footer>
+
+  </div>
+</body>
+</html>
